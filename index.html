@@ -1,163 +1,379 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Your Trusted Marketplace For Collectible Trading Cards Games - TCGPlayer Reimagined</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <header>
-        <a href="./index.html">
-            <img src="./assets/brand/logo.svg" alt="TCGPlayer Logo">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Your Trusted Marketplace For Collectible Trading Cards Games - TCGPlayer Reimagined</title>
+  <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
+  <link rel="stylesheet" href="./src/style.css">
+  <script type="module" src="./src/main.js"></script>
+  <script type="module" src="./src/cart.js"></script>
+  <base target="_blank">
+<base target="_blank">
+</head>
+<body>
+
+  
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <!-- Panel del carrito -->
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+      <h2>Shopping Cart</h2>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+
+      <div class="cart-empty" id="cartEmpty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+          <path d="M3 6h18"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <h3>Your cart is empty</h3>
+        <p>Looks like you haven't added any cards yet. Start browsing to fill it up!</p>
+      </div>
+    </div>
+
+    <div class="cart-optimizer">
+      <div class="optimizer-info">
+        <div class="optimizer-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/>
+            <path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/>
+            <path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/>
+          </svg>
+        </div>
+        <div class="optimizer-text">
+          <h4>Cart Optimizer</h4>
+          <p>Save up to $12.40 on shipping</p>
+        </div>
+      </div>
+      <button class="optimizer-toggle is-on" id="optimizerToggle" aria-label="Toggle cart optimizer"></button>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-totals">
+        <div class="total-row">
+          <span>Subtotal</span>
+          <span class="value" id="subtotal">$0.00</span>
+        </div>
+        <div class="total-row">
+          <span>Estimated Shipping</span>
+          <span class="value" style="color:var(--outline);">—</span>
+        </div>
+        <div class="total-row">
+          <span>Estimated Tax</span>
+          <span class="value" id="tax">$0.00</span>
+        </div>
+        <div class="total-row total-final">
+          <span>Total</span>
+          <span class="value" id="total">$0.00</span>
+        </div>
+      </div>
+      <button class="checkout-btn">Proceed to Checkout</button>
+      <button class="continue-link" id="continueShopping">Continue Shopping</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <button type="button" aria-label="Open menu" class="menu-toggle">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <a href="./index.html" class="logo">
+        <div class="logo-icon"><img src="./assets/brand/logo-original.svg" alt="TCGPlayer"></div>
+        <span class="logo-text">Reimagined Marketplace</span>
+      </a>
+      <form role="search" action="/search" class="search-form">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" name="q" placeholder="Search for cards, sets, sellers..." aria-label="Search">
+      </form>
+      <nav class="main-nav">
+        <a href="shipped-from.html">Shipped From</a>
+        <a href="browse.html">Browse</a>
+        <a href="sell.html">Sell</a>
+        <a href="#" id="cartToggle" aria-label="Cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4ZM3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         </a>
-        <!-- Nav con links: Inicio, Catálogo, Login -->
-        <nav>
-            <ul>
-                <li><a href="./index.html">Inicio</a></li>
-                <li><a href="./catalog.html">Catálogo</a></li>
-                <li><a href="./login.html">Login</a></li>
-            </ul>
-        </nav>
-        <!-- Buscador (formulario vacío, sin action) -->
-        <form>
-            <input type="text" placeholder="Buscar cartas...">
-        </form>
-        <!-- Icono de carrito (link placeholder) -->
-        <a href="./cart.html">
-            <img src="/assets/UI/cart.svg" alt="Carrito">
+        <a href="login.html" class="btn-login">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <a href="market-pulse.html" class="live-pulse">
+          <span class="pulse-badge">Live Market Pulse</span>
+          <span class="pulse-text">PSA 10 Charizard UP 4.2%</span>
         </a>
-    </header>
-
-    <main>
-        <section>
-           <h2>Best Sellers</h2>
-           <p>Check out these hot products!</p>
-           
-           <article>
-                <img src="./assets/products/product1.jpg" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>Description of Product 1.</p>
-                <p>$19.99</p>
-                <button>Add to Cart</button>
-            </article>
-
-            <article>
-                <img src="./assets/products/product2.jpg" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>Description of Product 2.</p>
-                <p>$29.99</p>
-                <button>Add to Cart</button>
-            </article>
-
-            <article>
-                <img src="./assets/products/product3.jpg" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>Description of Product 3.</p>
-                <p>$39.99</p>
-                <button>Add to Cart</button>
-            </article>
-            <article>
-                <img src="./assets/products/product4.jpg" alt="Product 4">
-                <h3>Product 4</h3>
-                <p>Description of Product 4.</p>
-                <p>$49.99</p>
-                <button>Add to Cart</button>
-            </article>
-            <article>
-                <img src="./assets/products/product5.jpg" alt="Product 5">
-                <h3>Product 5</h3>
-                <p>Description of Product 5.</p>
-                <p>$59.99</p>
-                <button>Add to Cart</button>
-            </article>
-            
-            <article>
-                <img src="./assets/products/product6.jpg" alt="Product 6">
-                <h3>Product 6</h3>
-                <p>Description of Product 6.</p>
-                <p>$69.99</p>
-                <button>Add to Cart</button>
-            </article>
-        </section>
-
-        <section>
-          <h2>Latest Articles</h2>
-            <article>
-                <img src="./assets/" alt="Product 7">
-                <h3>MAGIC: THE GATHERING</h3>
-                <p>The Biggest Price Spikes in Magic This Week</p>
-                <button>Read Now</button>
-            </article>
-            <article>
-                <img src="./assets/" alt="Product 7">
-                <h3>MAGIC: THE GATHERING</h3>
-                <p>How to Upgrade All Four Marvel Super Heroes Commander Decks</p>
-                <button>Read Now</button>
-            </article>
-            <article>
-                <img src="./assets/" alt="Product 7">
-                <h3>POKEMON</h3>
-                <p>Relationed Pokemon Things</p>
-                <button>Read Now</button>
-            </article>
-            <article>
-                <img src="./assets/" alt="Product 7">
-                <h3>ONE PIECE</h3>
-                <p>One Piece related content</p>
-                <button>Read Now</button>
-            </article>
-            <article>
-                <img src="./assets/" alt="Product 7">
-                <h3>YU-GI-OH!</h3>
-                <p>YU-GI-OH! related content</p>
-                <button>Read Now</button>
-            </article>
-            <article>
-                <img src="./assets/" alt="Product 7">
-                <h3>DISNEY LORCANA </h3>
-                <p>DISNEY LORCANA related content</p>
-                <button>Read Now</button>
-            </article>
-            <article>
-                <img src="./assets/" alt="Product 7">
-                <h3>RIFTBOUND</h3>
-                <p>The Biggest Price Spikes in Magic This Week</p>
-                <button>Read Now</button>
-            </article>
-        </section>
-    <section>
-      <h2>LATEST SETS</h2>
-      <p>New sets from your favoryte games:</p>
-      
-      <article>
-          <img src="./assets/products/set1.jpg" alt="Set 1">
-          <h3>Set 1</h3>
-          <p>Description of Set 1.</p>
-          <button>View Set</button>
-      </article>
-      <article>
-          <img src="./assets/products/set2.jpg" alt="Set 2">
-          <h3>Set 2</h3>
-          <p>Description of Set 2.</p>
-          <button>View Set</button>
-      </article>
-      <article>
-          <img src="./assets/products/set3.jpg" alt="Set 3">
-          <h3>Set 3</h3>
-          <p>Description of Set 3.</p>
-          <button>View Set</button> 
-      </article>
-
-     </section>
+        <h1>The Smartest Way to <strong>Buy & Sell Trading Cards</strong></h1>
+        <p>Professional grade marketplace for enthusiasts and investors. Real time pricing, authenticated listings, and the most secure exchange in the hobby.</p>
+        <div class="hero-actions">
+          <a href="browse-cards.html" class="btn btn-primary">Browse Cards</a>
+          <a href="start-selling.html" class="btn btn-secondary">Start Selling</a>
+        </div>
+      </div>
     </section>
-      </main>
-    <footer>
-       <p>Copyright © 2026 NotNexzu.exe All Rights Reserved</p>
-       <p>Disclaimer: This is a fictional website created for educational purposes. All trademarks and brands are the property of their respective owners.</p>
-       <p>Original website: <a href="https://www.tcgplayer.com">tcgplayer.com</a> for reference and my learning purposes.</p>
-       <div data-v-72ec8b86=""><a data-v-72ec8b86="" href="https://magic.wizards.com/en" target="_blank">Magic: The Gathering</a> and its respective properties are © <a data-v-72ec8b86="" href="http://company.wizards.com/" target="_blank">Wizards of the Coast</a>. <br data-v-72ec8b86=""><a data-v-72ec8b86="" href="http://www.yugioh-card.com/en/" target="_blank">Yu-Gi-Oh!</a> and its respective properties are © 2026 Studio Dice/SHUEISHA, TV TOKYO, KONAMI. <br data-v-72ec8b86=""><a href="https://en.cf-vanguard.com/" target="_blank" data-v-72ec8b86="">Cardfight!! Vanguard</a> and <a href="https://en.ws-tcg.com/" target="_blank" data-v-72ec8b86="">Weiß Schwarz</a> are © bushiroad All Rights Reserved. <br data-v-72ec8b86=""><a href="https://en.shadowverse-evolve.com/" target="_blank" data-v-72ec8b86="">Shadowverse: Evolve</a> is © Cygames, Inc. <br data-v-72ec8b86=""><a href="https://en.godzilla-cardgame.com/" target="_blank" data-v-72ec8b86="">Godzilla Card Game</a> is TM &amp; © TOHO CO., LTD. <br data-v-72ec8b86=""><a href="https://en.hololive-official-cardgame.com/" target="_blank" data-v-72ec8b86="">hololive OFFICIAL CARD GAME</a> is © COVER <br data-v-72ec8b86=""> ©2026 <a data-v-72ec8b86="" href="https://www.pokemon.com/us/pokemon-tcg/" target="_blank">Pokémon</a>. ©1995 - 2026 Nintendo/Creatures Inc./GAME FREAK Inc. TM, ®Nintendo. <br data-v-72ec8b86=""> Disney Lorcana and its respective properties are © <a data-v-72ec8b86="" href="https://www.disney.com/" target="_blank">Disney</a><br data-v-72ec8b86=""><a data-v-72ec8b86="" href="https://riftbound.leagueoflegends.com/en-us/" target="_blank">RIFTBOUND: LEAGUE OF LEGENDS</a> manufactured by <a data-v-72ec8b86="" href="https://uvsgames.com/" target="_blank">UVS Games</a> under license from Riot Games. ™ &amp; © 2026 Riot Games, Inc. </div>
-</footer>
-    </body>
+    <section class="popular-games">
+      <div class="container">
+        <header>
+          <div>
+            <h2>Popular Games</h2>
+            <p>Explore massive collections across all major ecosystems.</p>
+          </div>
+          <a href="games.html" class="view-all">View all games →</a>
+        </header>
+        <div class="games-grid">
+          <article class="game-card">
+            <div class="game-icon mtg"><img src="./assets/UI/Games/Magic-the-gatering/Magic-The-Gathering-logo.png" alt="Magic: The Gathering"></div>
+            <h3>Magic: The Gathering</h3>
+            <p>1.2M+ Cards</p>
+          </article>
+          <article class="game-card">
+            <div class="game-icon pokemon"><img src="./assets/UI/Games/Pokemon/pokemon-logo.svg" alt="Pokémon"></div>
+            <h3>Pokémon</h3>
+            <p>850K+ Cards</p>
+          </article>
+          <article class="game-card">
+            <div class="game-icon yugioh"><img src="./assets/UI/Games/Yu-Gi-Oh!/Yu-Gi-Oh-Logo.png" alt="Yu-Gi-Oh!"></div>
+            <h3>Yu-Gi-Oh!</h3>
+            <p>600K+ Cards</p>
+          </article>
+          <article class="game-card">
+            <div class="game-icon onepiece"><img src="./assets/UI/Games/One Piece/One-piece-logo.png" alt="One Piece"></div>
+            <h3>One Piece</h3>
+            <p>120K+ Cards</p>
+          </article>
+          <article class="game-card">
+            <div class="game-icon lorcana"><img src="./assets/UI/Games/Lorcana/Lorcana-logo.png" alt="Disney Lorcana"></div>
+            <h3>Disney Lorcana</h3>
+            <p>80K+ Cards</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="latest-releases">
+      <div class="container">
+        <header>
+          <div>
+            <h2>Latest Releases</h2>
+            <p>Stay ahead of the meta with the newest sets and expansion boxes.</p>
+          </div>
+          <a href="release-calendar.html" class="view-all">View release calendar →</a>
+        </header>
+        <div class="releases-grid">
+          <article class="release-card">
+            <span class="tag tag-mtg">MTG</span>
+            <time datetime="2024-02-09">Released Feb 9, 2024</time>
+            <img src="https://placehold.co/400x500/2c322a/6ede72?text=Murders+at+Karlov+Manor" alt="Murders at Karlov Manor box art" class="card-image" loading="lazy">
+            <h3>Murders at Karlov Manor</h3>
+            <a href="shop-murders.html" class="btn btn-primary">Shop Now</a>
+          </article>
+          <article class="release-card">
+            <span class="tag tag-pokemon">Pokémon TCG: Pitch Black: Three-Pack Blister</span>
+            <time datetime="2026-07-13">Releases: Jul 13 2026</time>
+            <img src="https://placehold.co/400x500/2c322a/ffd54f?text=Temporal+Forces" alt="Temporal Forces box art" class="card-image" loading="lazy">
+            <h3>Temporal Forces</h3>
+            <a href="preorder-temporal.html" class="btn btn-preorder">Pre-order</a>
+          </article>
+          <article class="release-card">
+            <span class="tag tag-yugioh">Yu-Gi-Oh!</span>
+            <time datetime="2024-04-26">Releases Apr 26, 2024</time>
+            <img src="https://placehold.co/400x500/2c322a/adc6ff?text=Legacy+of+Destruction" alt="Legacy of Destruction box art" class="card-image" loading="lazy">
+            <h3>Legacy of Destruction</h3>
+            <span class="btn btn-disabled">Coming Soon</span>
+          </article>
+          <article class="release-card">
+            <span class="tag tag-lorcana">Lorcana</span>
+            <time datetime="2024-02-23">Released Feb 23, 2024</time>
+            <img src="https://placehold.co/400x500/2c322a/ff8a80?text=Into+the+Inklands" alt="Into the Inklands box art" class="card-image" loading="lazy">
+            <h3>Into the Inklands</h3>
+            <a href="shop-inklands.html" class="btn btn-primary">Shop Now</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="articles-guides">
+      <div class="container">
+        <header>
+          <div>
+            <h2>Latest Articles & Guides</h2>
+            <p>Insights from the pros to help you collect and play smarter.</p>
+          </div>
+          <a href="articles.html" class="view-all">View all articles →</a>
+        </header>
+        <div class="articles-grid">
+          <article class="article-card">
+            <span class="category-tag strategy">Strategy</span>
+            <img src="https://placehold.co/600x375/e9f0e3/171d16?text=MTG+Meta+Guide" alt="MTG meta article" class="article-image" loading="lazy">
+            <h3>How to Master the Current MTG Meta</h3>
+            <p>Discover the top deck archetypes dominating the Murders at Karlov Manor release season and how to...</p>
+            <footer>
+              <span class="author">by Peter</span>
+              <span class="read-time">5 min read</span>
+            </footer>
+          </article>
+          <article class="article-card">
+            <span class="category-tag market">Market Watch</span>
+            <img src="https://placehold.co/600x375/e9f0e3/171d16?text=Pokémon+Vintage" alt="Pokémon vintage article" class="article-image" loading="lazy">
+            <h3>Pokémon Vintage: The State of the Market 2024</h3>
+            <p>Are base set holos still the gold standard? Analyzing the latest auction results and private sale trends for...</p>
+            <footer>
+              <span class="author">Caspian</span>
+              <span class="read-time">8 min read</span>
+            </footer>
+          </article>
+          <article class="article-card">
+            <span class="category-tag community">Community</span>
+            <img src="https://placehold.co/600x375/e9f0e3/171d16?text=Tournament+Guide" alt="Local tournament guide" class="article-image" loading="lazy">
+            <h3>Organizing Your First Local Tournament</h3>
+            <p>A step-by-step guide to building a thriving local community for Lorcana and One Piece TCG players in...</p>
+            <footer>
+              <span class="author">Sam Rivera</span>
+              <span class="read-time">12 min read</span>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trending-now">
+      <div class="container">
+        <header>
+          <div class="trending-header-left">
+            <h2>Trending Now</h2>
+            <span class="live-badge">Live</span>
+          </div>
+          <div class="carousel-controls">
+            <button type="button" aria-label="Previous items">‹</button>
+            <button type="button" aria-label="Next items">›</button>
+          </div>
+        </header>
+        <p>Get market insights and rare listing alerts.</p>
+        <div class="products-grid">
+          <article class="product-card">
+            <span class="game-tag">Pokémon</span>
+            <img src="https://placehold.co/300x400/1a1f18/ffffff?text=Charizard+ex" alt="Charizard ex card" class="product-image" loading="lazy">
+            <h3>Charizard ex</h3>
+            <p class="set-name">Scarlet & Violet: Base Set</p>
+            <p class="price">$1,499.00</p>
+            <p class="condition">NM · Holo Rare · Unlimited</p>
+            <p class="seller">99.9% Seller</p>
+            <button type="button" class="btn btn-cart">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              Add to Cart
+            </button>
+          </article>
+          <article class="product-card">
+            <span class="game-tag">MTG</span>
+            <img src="https://placehold.co/300x400/1a1f18/ffffff?text=Black+Lotus" alt="Black Lotus card" class="product-image" loading="lazy">
+            <h3>Black Lotus - Unlimited</h3>
+            <p class="price">$12,500.99</p>
+            <p class="condition">BGS 8.5 · Lightly Played</p>
+            <p class="seller">100% Seller</p>
+            <button type="button" class="btn btn-cart">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              Add to Cart
+            </button>
+          </article>
+          <article class="product-card">
+            <span class="game-tag">Yu-Gi-Oh!</span>
+            <img src="https://placehold.co/300x400/1a1f18/ffffff?text=Blue-Eyes" alt="Blue-Eyes White Dragon card" class="product-image" loading="lazy">
+            <h3>Blue-Eyes White Dragon</h3>
+            <p class="price">$285.50</p>
+            <p class="condition">NM · 1st Edition · Unlimited</p>
+            <p class="seller">99.2% Seller</p>
+            <button type="button" class="btn btn-cart">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              Add to Cart
+            </button>
+          </article>
+          <article class="product-card">
+            <span class="game-tag">One Piece</span>
+            <img src="https://placehold.co/300x400/1a1f18/ffffff?text=Monkey+D.+Luffy" alt="Monkey D. Luffy SR card" class="product-image" loading="lazy">
+            <h3>Monkey D. Luffy (SR)</h3>
+            <p class="price">$42.00</p>
+            <p class="condition">NM · Alt Art · Japanese</p>
+            <p class="seller">99.9% Seller</p>
+            <button type="button" class="btn btn-cart">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              Add to Cart
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-brand">
+        <a href="./index.html" class="logo">
+          <div class="logo-icon"><img src="./assets/brand/logo-without-text.svg" alt="TCGPlayer"></div>
+          <span class="logo-text">Marketplace</span>
+        </a>
+        <p>The definitive trading card game platform for modern collectors, high-fidelity data, secure transactions.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/TCGPlayer" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+          <a href="https://twitter.com/TCGPlayer" target="_blank" rel="noopener noreferrer" aria-label="Twitter">𝕏</a>
+          <a href="https://www.instagram.com/tcgplayer/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="Marketplace">
+        <h3>Marketplace</h3>
+        <ul>
+          <li><a href="browse-all.html">Browse All</a></li>
+          <li><a href="new-arrivals.html">New Arrivals</a></li>
+          <li><a href="price-guides.html">Price Guides</a></li>
+          <li><a href="authentication.html">Authentication</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav" aria-label="Company">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="help-center.html">Help Center</a></li>
+        </ul>
+      </nav>
+      <div class="footer-newsletter">
+        <h3>Newsletter</h3>
+        <p>Get market insights and rare listing alerts.</p>
+        <form>
+          <input type="email" placeholder="Email address" required aria-label="Email address">
+          <button type="submit">Join</button>
+        </form>
+      </div>
+      <div class="footer-legal">
+        <p>© 2024 TCG Marketplace. All rights reserved.</p>
+        <p>
+          <a href="https://magic.wizards.com/en" target="_blank" rel="noopener noreferrer">Magic: The Gathering</a> and its respective properties are © <a href="http://company.wizards.com/" target="_blank" rel="noopener noreferrer">Wizards of the Coast</a>.
+          <a href="http://www.yugioh-card.com/en/" target="_blank" rel="noopener noreferrer">Yu-Gi-Oh!</a> and its respective properties are © 2026 Studio Dice/SHUEISHA, TV TOKYO, KONAMI.
+          <a href="https://en.cf-vanguard.com/" target="_blank" rel="noopener noreferrer">Cardfight!! Vanguard</a> and <a href="https://en.ws-tcg.com/" target="_blank" rel="noopener noreferrer">Weiß Schwarz</a> are © bushiroad All Rights Reserved.
+          <a href="https://en.shadowverse-evolve.com/" target="_blank" rel="noopener noreferrer">Shadowverse: Evolve</a> is © Cygames, Inc.
+          <a href="https://en.godzilla-cardgame.com/" target="_blank" rel="noopener noreferrer">Godzilla Card Game</a> is TM & © TOHO CO., LTD.
+          <a href="https://en.hololive-official-cardgame.com/" target="_blank" rel="noopener noreferrer">hololive OFFICIAL CARD GAME</a> is © COVER.
+          ©2026 <a href="https://www.pokemon.com/en/" target="_blank" rel="noopener noreferrer">Pokémon</a>. <a href="https://www.nintendo.com/" target="_blank" rel="noopener noreferrer">Nintendo</a> ©1995 - 2026 Nintendo/Creatures Inc./GAME FREAK Inc. TM, ®Nintendo.
+          <a href="https://www.disney.com/" target="_blank" rel="noopener noreferrer">Disney</a> Lorcana and its respective properties are © <a href="https://www.disney.com/" target="_blank" rel="noopener noreferrer">Disney</a>.
+          <a href="https://www.riotgames.com/" target="_blank" rel="noopener noreferrer">Riot Games</a> and its respective properties are © 2026 Riot Games, Inc. All Rights Reserved.
+          <a href="https://riftbound.leagueoflegends.com/en-us/" target="_blank" rel="noopener noreferrer">RIFTBOUND: LEAGUE OF LEGENDS</a> manufactured by UVS Games under license from Riot Games. ™ & © 2026 Riot Games, Inc.
+        </p>
+        <p class="disclaimer">These Project files are for educational purposes only and all rights are reserved to respective marks.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
 </html>
