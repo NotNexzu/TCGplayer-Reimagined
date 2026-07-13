@@ -11,53 +11,53 @@
    ============================================ */
 :root {
   /* Colors - EXACTLY as in original file */
-  --surface: #F5F8FF;
-  --surface-dim: #D8DCE6;
-  --surface-bright: #F5F8FF;
+  --surface: #f5fcef;
+  --surface-dim: #d5dcd0;
+  --surface-bright: #f5fcef;
   --surface-container-lowest: #ffffff;
-  --surface-container-low: #EEF1F8;
-  --surface-container: #E8ECF5;
-  --surface-container-high: #E2E6F0;
-  --surface-container-highest: #DCE0EA;
-  --on-surface: #1A1D24;
-  --on-surface-variant: #3E4556;
-  --inverse-surface: #1A1D24;
-  --inverse-on-surface: #EEF1F8;
-  --outline: #6B7280;
-  --outline-variant: #BEC4D4;
-  --surface-tint: #0968F6;
-  --primary: #0968F6;
+  --surface-container-low: #eff6e9;
+  --surface-container: #e9f0e3;
+  --surface-container-high: #e4eade;
+  --surface-container-highest: #dee5d8;
+  --on-surface: #171d16;
+  --on-surface-variant: #3e4a3c;
+  --inverse-surface: #2c322a;
+  --inverse-on-surface: #ecf3e6;
+  --outline: #6e7a6b;
+  --outline-variant: #becab8;
+  --surface-tint: #006e1f;
+  --primary: #006e1f;
   --on-primary: #ffffff;
-  --primary-container: #5BA8FF;
-  --on-primary-container: #001A4D;
-  --inverse-primary: #7AB8FF;
-  --secondary: #5C3112;
+  --primary-container: #3dae49;
+  --on-primary-container: #003a0c;
+  --inverse-primary: #6ede72;
+  --secondary: #005bc0;
   --on-secondary: #ffffff;
-  --secondary-container: #D4B896;
-  --on-secondary-container: #2A1508;
-  --tertiary: #8B5E3C;
+  --secondary-container: #4c8efe;
+  --on-secondary-container: #00285c;
+  --tertiary: #b6232b;
   --on-tertiary: #ffffff;
-  --tertiary-container: #E8C8A8;
-  --on-tertiary-container: #3A1F0A;
-  --error: #BA1A1A;
-  --on-error: #FFFFFF;
-  --error-container: #FFDAD6;
-  --on-error-container: #93000A;
-  --primary-fixed: #D4E4FF;
-  --primary-fixed-dim: #A8C8FF;
-  --on-primary-fixed: #001A4D;
-  --on-primary-fixed-variant: #0047B3;
-  --secondary-fixed: #F0E0D0;
-  --secondary-fixed-dim: #D4B896;
-  --on-secondary-fixed: #2A1508;
-  --on-secondary-fixed-variant: #4A2A0F;
-  --tertiary-fixed: #F5E8DC;
-  --tertiary-fixed-dim: #E8C8A8;
-  --on-tertiary-fixed: #3A1F0A;
-  --on-tertiary-fixed-variant: #5C3A1A;
-  --background: #F5F8FF;
-  --on-background: #1A1D24;
-  --surface-variant: #DCE0EA;
+  --tertiary-container: #ff6664;
+  --on-tertiary-container: #69000d;
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+  --primary-fixed: #8afb8b;
+  --primary-fixed-dim: #6ede72;
+  --on-primary-fixed: #002204;
+  --on-primary-fixed-variant: #005315;
+  --secondary-fixed: #d8e2ff;
+  --secondary-fixed-dim: #adc6ff;
+  --on-secondary-fixed: #001a41;
+  --on-secondary-fixed-variant: #004493;
+  --tertiary-fixed: #ffdad7;
+  --tertiary-fixed-dim: #ffb3af;
+  --on-tertiary-fixed: #410005;
+  --on-tertiary-fixed-variant: #930017;
+  --background: #f5fcef;
+  --on-background: #171d16;
+  --surface-variant: #dee5d8;
 
   /* Typography - Fugaz One for display/headings, Work Sans for body */
   --font-display: 'Fugaz One', cursive;
@@ -721,14 +721,14 @@ body > header .container {
 .hero .live-pulse:hover {
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   transform: translateY(-2px);
-  border-color: #006e1f;
+  border-color: var(--primary);
 }
 
 .pulse-badge {
   font-family: var(--font-body);
   font-size: 11px;
   font-weight: 700;
-  color: #006e1f;
+  color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   display: inline-flex;
@@ -741,7 +741,7 @@ body > header .container {
   content: '';
   width: 6px;
   height: 6px;
-  background: #006e1f;
+  background: var(--primary);
   border-radius: 50%;
   display: inline-block;
   animation: pulse 2s ease-in-out infinite;
@@ -1276,8 +1276,8 @@ body > header .container {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #ff6664;
-  color: #b6232b;
+  background: var(--tertiary-container);
+  color: var(--on-tertiary);
   padding: 4px 10px;
   border-radius: var(--radius-full);
   font-family: var(--font-body);
@@ -1294,7 +1294,7 @@ body > header .container {
   content: '';
   width: 6px;
   height: 6px;
-  background: #b6232b;
+  background: var(--tertiary);
   border-radius: 50%;
   display: inline-block;
   animation: pulse 2s ease-in-out infinite;
