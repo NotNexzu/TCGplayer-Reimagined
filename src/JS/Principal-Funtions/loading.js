@@ -1,13 +1,4 @@
-/**
- * ZZZ Loading Screen Controller — Improved
- * 
- * Maneja la pantalla de carga estilo Zenless Zone Zero con:
- * - Tiempo mínimo de visualización garantizado (para que se aprecie la animación)
- * - Fase de "anticipación" antes del fade-out (simula carga real)
- * - Fade-out en dos etapas: pausa → desvanecimiento lento
- * - Sincronización con el contenido real de la página
- */
-
+// Sorry for the spanish because I am a native spanish speaker and I am more comfortable writing in spanish. I will try to write in english as much as possible, but some comments may be in spanish :D | By: NotNexzu
 (function () {
   const loadingScreen = document.getElementById('zzzLoadingScreen');
   const loadingAnim = document.getElementById('zzzLoadingAnim');

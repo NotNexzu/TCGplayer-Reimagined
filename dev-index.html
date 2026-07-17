@@ -1,31 +1,39 @@
-<!-- index.html-->
-<!DOCTYPE html>
+<!-- dev-index.html -->
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Your Trusted Marketplace For Collectible Trading Cards Games - TCGPlayer Reimagined</title>
+  <title>DEV — Your Trusted Marketplace For Collectible Trading Cards Games - TCGPlayer Reimagined</title>
   <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
   <link rel="stylesheet" href="./src/style.css">
   <script type="module" src="./src/main.js"></script>
   <script type="module" src="./src/cart.js"></script>
+  <script type="module" src="./src/dev-mode.js"></script>
   <base target="_blank">
-<base target="_blank">
 </head>
 <body class="loading-active">
-  
-  <!-- Dev Mode Page Transition Overlay -->
-<div class="dev-transition-overlay" id="devTransition">
-  <div class="dev-scan-line"></div>
-  <div class="dev-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M16 18 22 12 16 6"/>
-      <path d="M8 6 2 12l6 6"/>
-      <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+
+  <!-- Stable Mode Page Transition Overlay -->
+<div class="stable-transition-overlay" id="stableTransition">
+  <div class="stable-lines">
+    <div class="stable-line"></div>
+    <div class="stable-line"></div>
+    <div class="stable-line"></div>
+    <div class="stable-line"></div>
+  </div>
+  <div class="stable-icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M20 6 9 17l-5-5"/>
     </svg>
   </div>
-  <div class="dev-text">Developer Mode</div>
-  <div class="dev-subtext">Loading dev environment...</div>
+  <div class="stable-text">
+    <h2>Stable Mode</h2>
+    <p>Loading production environment...</p>
+  </div>
+  <div class="stable-progress-track">
+    <div class="stable-progress-fill"></div>
+  </div>
 </div>
 
   <!-- ZZZ Style Loading Screen -->
@@ -108,30 +116,66 @@
         <span aria-hidden="true"></span>
       </button>
       <a href="./index.html" class="logo">
-        <div class="logo-icon"><img src="./assets/brand/logo-original.svg" alt="TCGPlayer"></div>
-        <span class="logo-text">Reimagined Marketplace</span>
-      </a>
+  <div class="dlogo-icon"><img src="./assets/brand/logo-original.svg" alt="TCGPlayerDev"></div>
+  <span class="logo-text">Reimagined DEV</span>
+</a>
       <form role="search" action="/search" class="search-form">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
         <input type="text" name="q" placeholder="Search for cards, sets, sellers..." aria-label="Search">
       </form>
       <nav class="main-nav">
-        <!-- idk howto do the regional price update-->
-        <a href="./Html//stable/Browse.html">Browse</a>
+        <a href="./Html/Browse.html">Browse</a>
         <a href="sell.html">Sell</a>
         <a href="#" id="cartToggle" aria-label="Cart">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4ZM3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         </a>
-        <a href="./dev-index.html" id="developerToggleoff" aria-label="Enter Developer Mode">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M16 18 22 12 16 6"/>
-    <path d="M8 6 2 12l6 6"/>
-  </svg>
-</a>
+        <!-- Botón Dev Mode ACTIVO -->
+        <a href="./index.html" id="developerToggleoff" class="is-active" aria-label="Developer Mode ON — Click to exit">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 18 22 12 16 6"/>
+              <path d="M8 6 2 12l6 6"/>
+              <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+        </a>
         <a href="login.html" class="btn-login">Login</a>
       </nav>
     </div>
   </header>
+  
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <a href="./Html/Browse.html">Browse</a>
+  <a href="sell.html">Sell</a>
+  <div class="mobile-divider"></div>
+  <a href="login.html">Login</a>
+</nav>
+
+  <!-- Developer Warning Banner -->
+  <div id="developer-warning">
+    <div class="container">
+      <div class="warning-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+      </div>
+      <div>
+        <div class="warning-title">
+          Developer Mode Active
+          <span class="warning-badge">Live Warning</span>
+        </div>
+        <p class="warning-text">
+          This is a <strong>development version</strong> of the website. You may encounter bugs, unfinished features, or broken links. <a href="./index.html">Exit developer mode</a> to view the stable production version.
+        </p>
+      </div>
+      <button class="warning-dismiss" aria-label="Dismiss warning">
+        <svg viewBox="0 0 24 24">
+          <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
 
   <main>
     <section class="hero">
@@ -241,7 +285,7 @@
         <div class="articles-grid">
           <article class="article-card">
             <span class="category-tag strategy">Strategy</span>
-            <a href="./Html/How-to-Master-the-Current-MTG-Meta.html">
+            <a href="./Html//Developement/How-to-Master-the-Current-MTG-Meta-dev.html">
               <img src="https://placehold.co/600x375/e9f0e3/171d16?text=MTG+Meta+Guide" alt="MTG meta article" class="article-image" loading="lazy">
             </a>
             <h3>How to Master the Current MTG Meta</h3>
@@ -253,8 +297,7 @@
           </article>
           <article class="article-card">
             <span class="category-tag market">Market Watch</span>
-
-            <a href="./Html/Pokémon-Vintage-The-State-of-the-Market-2024.html">
+            <a href="./Html//Developement/Pokémon-Vintage-The-State-of-the-Market-2024-dev.html">
               <img src="https://placehold.co/600x375/e9f0e3/171d16?text=Pokémon+Vintage" alt="Pokémon vintage article" class="article-image" loading="lazy">
             </a>
             <h3>Pokémon Vintage: The State of the Market 2024</h3>
@@ -266,7 +309,7 @@
           </article>
           <article class="article-card">
             <span class="category-tag community">Community</span>
-            <a href="./Html/Organizing-Your-First-Local-Tournament.html">
+            <a href="./Html/Organizing-Your-First-Local-Tournament-dev.html">
               <img src="https://placehold.co/600x375/e9f0e3/171d16?text=Tournament+Guide" alt="Local tournament guide" class="article-image" loading="lazy">
             </a>
             <h3>Organizing Your First Local Tournament</h3>
@@ -407,6 +450,37 @@
       </div>
     </div>
   </footer>
+<script>
+(function() {
+  const toggle = document.querySelector('.menu-toggle');
+  const mobileNav = document.getElementById('mobileNav');
+  const overlay = document.getElementById('mobileOverlay');
+  if (!toggle || !mobileNav || !overlay) return;
+
+  function open() {
+    mobileNav.classList.add('is-open');
+    overlay.classList.add('is-open');
+    toggle.classList.add('is-active');
+    toggle.setAttribute('aria-label', 'Close menu');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    mobileNav.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    toggle.classList.remove('is-active');
+    toggle.setAttribute('aria-label', 'Open menu');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', () => {
+    mobileNav.classList.contains('is-open') ? close() : open();
+  });
+  overlay.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) close();
+  });
+})();
+</script>
 
 </body>
 </html>

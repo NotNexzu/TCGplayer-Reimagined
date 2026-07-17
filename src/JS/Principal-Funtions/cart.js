@@ -3,6 +3,8 @@ const cartPanel = document.getElementById('cartPanel');
 const cartToggle = document.getElementById('cartToggle');
 const cartClose = document.getElementById('cartClose');
 const continueShopping = document.getElementById('continueShopping');
+const addToCartFunction = document.querySelectorAll('.add-to-cart');
+
 
 function openCart() {
   cartOverlay.classList.add('is-open');
