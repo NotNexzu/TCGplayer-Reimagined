@@ -1,0 +1,269 @@
+/* ============================================
+   Developer Warning Banner
+   ============================================ */
+
+#developer-warning {
+  background: linear-gradient(135deg, #FFF3E0 0%, #FFE8CC 100%);
+  border-bottom: 2px solid #FFB74D;
+  padding: 0;
+  animation: noticeSlide 0.6s var(--ease-out-expo) both;
+  position: relative;
+  overflow: hidden;
+}
+
+#developer-warning::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #FF9800 0%, #FF5722 50%, #FF9800 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+#developer-warning .container {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  padding-top: 24px;
+  padding-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Decoración sutil de fondo */
+#developer-warning::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 152, 0, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(30%, -30%);
+  pointer-events: none;
+}
+
+/* Icono de warning */
+.warning-icon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(255, 152, 0, 0.25);
+  transition: transform var(--duration-fast) var(--ease-out-back);
+}
+
+.warning-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: white;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+#developer-warning:hover .warning-icon {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+/* Badge */
+.warning-badge {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  color: #E65100;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  background: #FFCC80;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  animation: fadeIn 0.4s var(--ease-smooth) 0.1s both;
+}
+
+.warning-badge::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: #FF5722;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* Título */
+.warning-title {
+  font-family: var(--font-display);
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: #E65100;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.5s var(--ease-out-expo) 0.1s both;
+}
+
+/* Texto */
+.warning-text {
+  font: var(--font-body-lg);
+  color: #5D4037;
+  font-size: clamp(14px, 1.8vw, 16px);
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+  animation: fadeInUp 0.5s var(--ease-out-expo) 0.2s both;
+}
+
+.warning-text strong {
+  color: #BF360C;
+  font-weight: 600;
+}
+
+.warning-text a {
+  color: #E65100;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.warning-text a:hover {
+  color: #BF360C;
+  text-decoration-thickness: 2px;
+}
+
+/* Botón cerrar */
+.warning-dismiss {
+  background: rgba(255, 152, 0, 0.1);
+  border: 1px solid rgba(255, 152, 0, 0.25);
+  color: #E65100;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all var(--duration-fast) var(--ease-smooth);
+  min-width: 44px;
+  min-height: 44px;
+  margin-top: 6px;
+}
+
+.warning-dismiss:hover {
+  background: rgba(255, 152, 0, 0.2);
+  color: #BF360C;
+  transform: rotate(90deg);
+}
+
+.warning-dismiss:active {
+  transform: rotate(90deg) scale(0.92);
+}
+
+.warning-dismiss svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+/* ============================================
+   RESPONSIVE WARNING BANNER
+   ============================================ */
+@media (max-width: 768px) {
+  #developer-warning .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-md);
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .warning-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .warning-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .warning-title {
+    justify-content: center;
+  }
+
+  .warning-dismiss {
+    margin-top: 0;
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #developer-warning .container {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .warning-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .warning-title {
+    font-size: 15px;
+  }
+
+  .warning-text {
+    font-size: 13px;
+  }
+
+  .warning-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #developer-warning,
+  .warning-title,
+  .warning-text,
+  .warning-badge {
+    animation-duration: 0.01ms !important;
+  }
+
+  #developer-warning::before {
+    animation: none;
+    background: #FF9800;
+  }
+
+  .warning-badge::before {
+    animation: none;
+  }
+
+  .warning-icon,
+  .warning-dismiss {
+    transition: none;
+  }
+}

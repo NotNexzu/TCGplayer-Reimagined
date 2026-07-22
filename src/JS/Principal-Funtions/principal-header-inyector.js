@@ -1,11 +1,7 @@
-(function() {
-  'use strict';
-
-  // Evita inyectar si ya existe un header
-  if (document.querySelector('header')) return;
-
-  const headerHTML = `
-  <header>
+class TCGHeader extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+<header>
     <div class="container">
       <button type="button" aria-label="Open menu" class="menu-toggle">
         <span aria-hidden="true"></span>
@@ -13,7 +9,7 @@
         <span aria-hidden="true"></span>
       </button>
       <a href="./index.html" class="logo">
-        <div class="logo-icon"><img src="./assets/brand/logo-original.svg" alt="TCGPlayer"></div>
+        <div class="logo-icon"><img src="/assets/brand/logo-original.svg" alt="TCGPlayer"></div>
         <span class="logo-text">Reimagined Marketplace</span>
       </a>
       <form role="search" action="/search" class="search-form">
@@ -21,38 +17,25 @@
         <input type="text" name="q" placeholder="Search for cards, sets, sellers..." aria-label="Search">
       </form>
       <nav class="main-nav">
-        <a href="./Html/Browse.html">Browse</a>
+        <!-- idk howto do the regional price update-->
+        <a href="./Html//stable/Browse.html">Browse</a>
         <a href="sell.html">Sell</a>
         <a href="#" id="cartToggle" aria-label="Cart">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4ZM3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <svg width="23" height="23" viewBox="-0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.6 21.57a2 2 0 1 0 0-4 2 2 0 0 0 0 4m-10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4M2 3.56s4.64-.06 4 4l-.69 4.06a3.27 3.27 0 0 0 3.33 3.94h8a4.9 4.9 0 0 0 4.66-3.94l.69-4.11a3.292 3.292 0 0 0-3.35-4h-8.7" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="login.html" class="btn-login">Login</a>
-      </nav>
+            </a>
+
+            <a href="/login.html" class="btn-login">Login</a>
+        </nav>
     </div>
-  </header>`;
+</header>
+`;
+    }
+}
 
-  // Función para insertar el header
-  function injectHeader() {
-    const body = document.body;
-    if (!body) return;
+customElements.define("tcg-header", TCGHeader);
 
-    // Crea un contenedor temporal para parsear el HTML
-    const temp = document.createElement('div');
-    temp.innerHTML = headerHTML.trim();
-    
-    // Obtiene el elemento header del HTML parseado
-    const header = temp.firstChild;
-    
-    // Inserta al inicio del body
-    body.insertBefore(header, body.firstChild);
-  }
+/* <tcg-header></tcg-header>
 
-  // Si el DOM ya cargó, inyecta inmediatamente
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', injectHeader);
-  } else {
-    injectHeader();
-  }
-})();
-
-// use with <script src="principal-header-inyector.js"></script>
+    <script src="/src/JS/Principal-Funtions/principal-header-inyector.js"></script>
+*/

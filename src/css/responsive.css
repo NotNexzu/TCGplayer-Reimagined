@@ -1,0 +1,425 @@
+/* ============================================
+   MOBILE NAVIGATION
+   ============================================ */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(23, 29, 22, 0.35);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 140;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+.mobile-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: min(80%, 320px);
+  height: 100vh;
+  height: 100dvh;
+  background: var(--surface-container-lowest);
+  border-right: 1px solid var(--outline-variant);
+  z-index: 150;
+  transform: translateX(-100%);
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+  padding: 90px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 8px 0 40px rgba(0,0,0,0.1);
+}
+.mobile-nav.is-open {
+  transform: translateX(0);
+}
+
+.mobile-nav a {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--on-surface);
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  transition: all var(--duration-fast) var(--ease-smooth);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.mobile-nav a:hover,
+.mobile-nav a:focus {
+  background: var(--surface-container);
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+.mobile-nav .mobile-divider {
+  height: 1px;
+  background: var(--outline-variant);
+  margin: 8px 0;
+}
+
+/* Hamburger to X */
+.menu-toggle.is-active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.menu-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.menu-toggle.is-active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Large tablets and small desktops */
+@media (max-width: 1200px) {
+  .games-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .games-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .releases-grid,
+  .articles-grid,
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  body > footer .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .main-nav {
+    gap: var(--spacing-md);
+  }
+  .footer-brand {
+    max-width: 100%;
+  }
+}
+
+/* Large phones / Small tablets */
+@media (max-width: 768px) {
+  .main-nav a[href*="Browse"],
+  .main-nav a[href="sell.html"] {
+    display: none;
+  }
+
+  .main-nav a[href="cart.html"] {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+  }
+
+  .hero h1 {
+    font: var(--font-headline-lg-mobile);
+  }
+
+  .hero > .container > p {
+    font-size: 15px;
+  }
+
+  .releases-grid,
+  .articles-grid,
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body > footer .container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .footer-newsletter form {
+    flex-direction: column;
+  }
+
+  .footer-newsletter input[type="email"] {
+    width: 100%;
+  }
+
+  .carousel-controls {
+    display: none;
+  }
+
+  section > header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .view-all {
+    margin-top: 4px;
+  }
+
+  .search-form {
+    max-width: 260px;
+  }
+
+  .logo {
+    font-size: 14px;
+  }
+}
+
+/* Phones */
+@media (max-width: 640px) {
+  :root {
+    --gutter: 16px;
+  }
+
+  .hero {
+    padding: 32px 0;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero > .container > p {
+    font-size: 14px;
+  }
+
+  .hero .live-pulse {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .search-form {
+    display: none;
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .game-card {
+    padding: 16px;
+  }
+
+  .game-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+
+  .releases-grid,
+  .articles-grid,
+  .products-grid {
+    gap: 16px;
+  }
+
+  .release-card,
+  .article-card,
+  .product-card {
+    padding: 16px;
+  }
+
+  .popular-games,
+  .latest-releases,
+  .articles-guides,
+  .trending-now {
+    padding: 32px 0;
+  }
+
+  section > header {
+    margin-bottom: 16px;
+  }
+
+  section > header h2 {
+    font-size: 22px;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+  }
+
+  body > footer .container {
+    gap: 32px;
+  }
+
+  .trending-now > .container > header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .trending-header-left {
+    width: 100%;
+  }
+
+  .product-card h3,
+  .release-card h3,
+  .article-card h3 {
+    font-size: 15px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 10px 16px;
+  }
+
+  .hero-actions .btn {
+    min-width: 140px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .releases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .live-pulse {
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .pulse-text {
+    white-space: normal;
+  }
+
+  .menu-toggle {
+    margin-right: 0;
+  }
+
+  .logo {
+    gap: 6px;
+  }
+
+  .logo img {
+    height: 28px;
+  }
+
+  .main-nav {
+    gap: var(--spacing-sm);
+  }
+
+  .btn-login {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+
+  .cart-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .footer-newsletter form {
+    gap: 8px;
+  }
+
+  .social-links a {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer-legal p {
+    font-size: 10px;
+  }
+
+  .game-card h3 {
+    font-size: 15px;
+  }
+}
+
+/* Very small phones (320px) */
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .logo .logo-text {
+    font-size: 12px;
+  }
+
+  .btn-login {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .game-card h3 {
+    font-size: 14px;
+  }
+
+  .product-card h3,
+  .release-card h3 {
+    font-size: 14px;
+  }
+
+  .hero-actions .btn {
+    min-width: 120px;
+    padding: 10px 14px;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  section > header,
+  body > header,
+  .search-form,
+  .main-nav,
+  .hero .live-pulse,
+  .hero h1,
+  .hero > .container > p,
+  .game-card,
+  .release-card,
+  .article-card,
+  .product-card,
+  .trending-now > .container > header,
+  .trending-now > .container > p,
+  #developer-warning,
+  body > footer,
+  .footer-brand,
+  .footer-nav,
+  .footer-newsletter,
+  .footer-legal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

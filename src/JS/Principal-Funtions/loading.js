@@ -30,8 +30,10 @@
    */
   function preFade() {
     if (hasExited) return;
+    document.body.classList.add('page-ready');
     loadingScreen.style.transition = `opacity ${CONFIG.PRE_FADE_DURATION}ms cubic-bezier(0.23, 1, 0.32, 1)`;
     loadingScreen.style.opacity = '0.7';
+    
   }
 
   /**

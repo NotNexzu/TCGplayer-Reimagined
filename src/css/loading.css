@@ -1,0 +1,383 @@
+/* ============================================
+   PAGE ENTRANCE SYNCHRONIZATION
+   All entrance animations wait for body.page-ready
+   triggered by loading.js in preFade()
+   ============================================ */
+
+.btn-primary,
+.btn-secondary,
+section > header,
+header,
+.search-form,
+.main-nav,
+.hero .live-pulse,
+.hero h1,
+.hero > .container > p,
+.game-card,
+.release-card,
+.article-card,
+.product-card,
+.trending-now > .container > header,
+.trending-now > .container > p,
+#developer-warning,
+footer,
+.footer-brand,
+.footer-nav,
+.footer-newsletter,
+.footer-legal {
+  animation-play-state: paused;
+}
+
+body.page-ready .btn-primary,
+body.page-ready .btn-secondary,
+body.page-ready section > header,
+body.page-ready header,
+body.page-ready .search-form,
+body.page-ready .main-nav,
+body.page-ready .hero .live-pulse,
+body.page-ready .hero h1,
+body.page-ready .hero > .container > p,
+body.page-ready .game-card,
+body.page-ready .release-card,
+body.page-ready .article-card,
+body.page-ready .product-card,
+body.page-ready .trending-now > .container > header,
+body.page-ready .trending-now > .container > p,
+body.page-ready #developer-warning,
+body.page-ready footer,
+body.page-ready .footer-brand,
+body.page-ready .footer-nav,
+body.page-ready .footer-newsletter,
+body.page-ready .footer-legal {
+  animation-play-state: running;
+}
+
+/* ============================================
+   STABLE MODE PAGE TRANSITION OVERLAY
+   ============================================ */
+
+.stable-transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--surface);
+  z-index: 1000;
+  pointer-events: all;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s var(--ease-smooth), visibility 0.4s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  overflow: hidden;
+}
+
+.stable-transition-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Fondo radial sutil */
+.stable-transition-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(9, 104, 246, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Líneas decorativas animadas */
+.stable-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+.stable-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
+  animation: stableLineFloat 2.5s ease-in-out infinite;
+}
+
+.stable-line:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  width: 80px;
+  animation-delay: 0s;
+}
+
+.stable-line:nth-child(2) {
+  top: 60%;
+  left: 75%;
+  width: 100px;
+  animation-delay: 0.8s;
+}
+
+.stable-line:nth-child(3) {
+  top: 40%;
+  left: 85%;
+  width: 60px;
+  animation-delay: 1.4s;
+}
+
+.stable-line:nth-child(4) {
+  top: 75%;
+  left: 15%;
+  width: 70px;
+  animation-delay: 2s;
+}
+
+/* Icono */
+.stable-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(9, 104, 246, 0.25);
+  position: relative;
+  z-index: 1;
+  animation: stableIconPop 0.7s var(--ease-out-back) forwards;
+}
+
+.stable-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke: white;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+/* Texto */
+.stable-text {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: stableTextReveal 0.6s var(--ease-out-expo) 0.15s both;
+}
+
+.stable-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3.5vw, 28px);
+  color: var(--on-surface);
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.stable-text p {
+  font: var(--font-body-md);
+  color: var(--outline);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Barra de progreso */
+.stable-progress-track {
+  width: 140px;
+  height: 3px;
+  background: var(--surface-container-high);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  animation: stableBarFade 0.5s var(--ease-out-expo) 0.25s both;
+}
+
+.stable-progress-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-container));
+  border-radius: var(--radius-full);
+  transform-origin: left;
+  animation: stableProgressGrow 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+
+/* Keyframes */
+@keyframes stableIconPop {
+  from { transform: scale(0.4) rotate(-12deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+@keyframes stableTextReveal {
+  from { opacity: 0; transform: translateY(16px); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes stableBarFade {
+  from { opacity: 0; transform: scaleX(0.7); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+
+@keyframes stableProgressGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes stableLineFloat {
+  0%, 100% { opacity: 0; transform: translateX(-30px); }
+  50%      { opacity: 1; transform: translateX(30px); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .stable-transition-overlay,
+  .stable-icon,
+  .stable-text,
+  .stable-progress-track {
+    animation: none !important;
+    transition: none;
+  }
+  .stable-transition-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .stable-icon { transform: scale(1); opacity: 1; }
+  .stable-text { opacity: 1; transform: none; filter: none; }
+  .stable-progress-fill { transform: scaleX(1); }
+}
+.btn-login {
+  background: var(--primary);
+  color: var(--on-primary);
+  padding: 8px 18px;
+  border-radius: var(--radius-default);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: all var(--duration-fast) var(--ease-smooth);
+  position: relative;
+  overflow: hidden;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  border: 1px solid var(--primary);
+}
+
+.btn-login::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo);
+}
+
+.btn-login:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
+.btn-login:hover {
+  background: var(--on-primary-container);
+  border-color: var(--on-primary-container);
+  color: var(--on-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 110, 31, 0.3);
+}
+
+.btn-login:active {
+  transform: scale(0.97);
+}
+
+/* ============================================
+   ZZZ LOADING SCREEN
+   ============================================ */
+
+/* Bloquear scroll mientras carga */
+body.loading-active {
+  overflow: hidden;
+}
+
+/* Contenedor fullscreen blanco */
+.zzz-loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--surface-container);
+  z-index: 999;
+  pointer-events: all;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: opacity, transform;
+}
+
+.zzz-loading-screen.zzz-hidden {
+  display: none;
+}
+
+/* Contenedor de la animación sprite */
+.zzz-loading-anim {
+  position: absolute;
+  right: 16.875px;
+  bottom: 28.125px;
+  width: 298.125px;
+  height: 84.375px;
+  background-image: url("../assets/UI/zzz-loading-sprite.png");
+  background-size: 100% 3000%;
+  background-position: 0 0;
+  animation: zzzLoadingLoop 0.5s steps(30) infinite forwards;
+  image-rendering: auto;
+}
+
+/* Keyframes para recorrer el sprite sheet verticalmente */
+@keyframes zzzLoadingLoop {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 -3000%; }
+}
+
+/* Responsive: tablet */
+@media (max-width: 768px) {
+  .zzz-loading-anim {
+    width: 238px;
+    height: 67px;
+    right: 13px;
+    bottom: 22px;
+  }
+}
+
+/* Responsive: móvil pequeño */
+@media (max-width: 374px) {
+  .zzz-loading-anim {
+    width: 265px;
+    height: 75px;
+    right: 15px;
+    bottom: 25px;
+  }
+}
+
+/* Responsive: muy pequeño */
+@media (max-width: 300px) {
+  .zzz-loading-anim {
+    width: 198px;
+    height: 56px;
+    right: 11.2px;
+    bottom: 18.6px;
+  }
+}
+
+/* Reduced motion: desactivar animación */
+@media (prefers-reduced-motion: reduce) {
+  .zzz-loading-anim {
+    animation-duration: 0.01ms !important;
+  }
+  .zzz-loading-screen {
+    transition-duration: 0.01ms !important;
+  }
+}
