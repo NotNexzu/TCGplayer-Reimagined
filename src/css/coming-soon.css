@@ -1,0 +1,38 @@
+/* ============================================
+   COMING SOON (placeholder pages)
+   ============================================ */
+
+.coming-soon {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-2xl) var(--gutter);
+}
+
+.coming-soon .eyebrow {
+  font: var(--font-body-md);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+}
+
+.coming-soon h1 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 48px);
+  color: var(--on-surface);
+}
+
+.coming-soon p {
+  font: var(--font-body-md);
+  color: var(--outline);
+  max-width: 480px;
+}
+
+.coming-soon .btn-primary {
+  margin-top: var(--spacing-sm);
+}

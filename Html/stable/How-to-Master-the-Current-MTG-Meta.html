@@ -4,40 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to Master the Current MTG Meta - Guide - TCGplayer Reimagined</title>
+    <link rel="canonical" href="https://reimagined-marketplace.com/guides/mtg-meta-guide.html">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg">
 </head>
 <body>
-  <style>
+  <!-- Dev Mode Page Transition Overlay -->
+<div class="dev-transition-overlay" id="devTransition">
+  <div class="dev-scan-line"></div>
+  <div class="dev-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 18 22 12 16 6"/>
+      <path d="M8 6 2 12l6 6"/>
+      <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+    </svg>
+  </div>
+  <div class="dev-text">Developer Mode</div>
+  <div class="dev-subtext">Loading dev environment...</div>
+</div>
+  
+  <header>
+    <div class="container">
+      <button type="button" aria-label="Open menu" class="menu-toggle">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <a href="/index.html" class="logo">
+        <div class="logo-icon"><img src="/assets/brand/logo-original.svg" alt="TCGPlayer"></div>
+        <span class="logo-text">Reimagined Guide</span>
+      </a>
+      <form role="search" action="/search" class="search-form">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" name="q" placeholder="Search for more articles..." aria-label="Search">
+      </form>
+      <nav class="main-nav">
+        <a href="/Html/Developement/How-to-Master-the-Current-MTG-Meta-dev.html" id="developerToggleoff" aria-label="Enter Developer Mode">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 18 22 12 16 6"/>
+    <path d="M8 6 2 12l6 6"/>
+  </svg>
+</a>
+        <a href="login.html" class="btn-login">Login</a>
+      </nav>
+    </div>
+  </header>
+    
+  <main class="coming-soon">
+    <span class="eyebrow">Coming Soon</span>
+    <h1>How to Master the Current MTG Meta</h1>
+    <p>Search TCG's Reimagined massive trading card inventory — this guide is still being built.</p>
+    <a href="/index.html" class="btn-primary">Return to TCGplayer</a>
+  </main>
 
-    /* Body styles */
-    body {
-      font-family: 'Fugaz One', cursive;
-      background-color: #f5f5f5;
-      text-align: center;
-      padding: 50px;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      color: #333;
-    }
-
-    button {
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1em;
-      cursor: pointer;
-      border-radius: 5px;
-      margin-top: 20px;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-    </style>
-<h1>Coming soon</h1>
-<button onclick="window.location.href='./index.html'">Return to TCGplayer</button>
   <script>document.body.classList.add('page-ready');</script>
 </body>
 </html>

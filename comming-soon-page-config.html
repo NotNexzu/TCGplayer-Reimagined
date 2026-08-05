@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlaceHolder - TCGplayer Reimagined</title>
+  <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
+  <link rel="stylesheet" href="/src/style.css">
+  <script type="module" src="/src/JS/stub-page.js"></script>
+</head>
+<body>
+  
+<!-- Dev Mode Page Transition Overlay -->
+<div class="dev-transition-overlay" id="devTransition">
+  <div class="dev-scan-line"></div>
+  <div class="dev-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 18 22 12 16 6"/>
+      <path d="M8 6 2 12l6 6"/>
+      <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+    </svg>
+  </div>
+  <div class="dev-text">Developer Mode</div>
+  <div class="dev-subtext">Loading dev environment...</div>
+</div>
+  
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <!-- Panel del carrito -->
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+      <h2>Shopping Cart</h2>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+
+      <div class="cart-empty" id="cartEmpty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="100" height="100">
+          <path d="M7.5 18a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm9 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" stroke="#000000" stroke-width="1.5"/><path d="m11.5 12.5 3-3m0 3-3-3M2 3l.261.092c1.302.457 1.953.686 2.325 1.231s.372 1.268.372 2.715V9.76c0 2.942.063 3.912.93 4.826.866.914 2.26.914 5.05.914H12m4.24 0c1.561 0 2.342 0 2.894-.45.551-.45.709-1.214 1.024-2.743l.5-2.424c.347-1.74.52-2.609.076-3.186-.443-.577-1.96-.577-3.645-.577h-6.065m-6.066 0H7" stroke="#000000" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Your cart is empty</h3>
+        <p>Looks like you haven't added any cards yet. Start browsing to fill it up!</p>
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-totals">
+        <div class="total-row">
+          <span>Subtotal</span>
+          <span class="value" id="subtotal">$0.00</span>
+        </div>
+        <div class="total-row">
+          <span>Estimated Shipping</span>
+          <span class="value" style="color:var(--outline);">—</span>
+        </div>
+        <div class="total-row">
+          <span>Estimated Tax</span>
+          <span class="value" id="tax">$0.00</span>
+        </div>
+        <div class="total-row total-final">
+          <span>Total</span>
+          <span class="value" id="total">$0.00</span>
+        </div>
+      </div>
+      <button class="checkout-btn">Proceed to Checkout</button>
+      <button class="continue-link" id="continueShopping">Continue Shopping</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <button type="button" aria-label="Open menu" class="menu-toggle">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <a href="/index.html" class="logo">
+        <div class="logo-icon"><img src="/assets/brand/logo-original.svg" alt="TCGPlayer"></div>
+        <span class="logo-text">Reimagined Marketplace</span>
+      </a>
+      <form role="search" action="/search" class="search-form">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" name="q" placeholder="Search for cards, sets, sellers..." aria-label="Search">
+      </form>
+      <nav class="main-nav">
+        <!-- idk howto do the regional price update-->
+        <a href="/sell/sell.html">Sell</a>
+        <a href="#" id="cartToggle" aria-label="Cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4ZM3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </a>
+        <a href="placeholder" id="developerToggleoff" aria-label="Enter Developer Mode">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 18 22 12 16 6"/>
+    <path d="M8 6 2 12l6 6"/>
+  </svg>
+</a>
+        <a href="login.html" class="btn-login">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="coming-soon">
+    <span class="eyebrow">Coming Soon</span>
+    <h1>Browse Cards</h1>
+    <p>Search TCG's Reimagined massive trading card inventory — this page is still being built.</p>
+    <a href="/index.html" class="btn-primary">Return to TCGplayer</a>
+  </main>
+
+
+</body>
+</html>

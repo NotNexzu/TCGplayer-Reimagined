@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - TCGplayer Reimagined</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - TCGplayer Reimagined</title>
+  <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
+  <link rel="stylesheet" href="/src/style.css">
+  <script type="module" src="/src/JS/stub-page.js"></script>
 </head>
 <body>
-  <div class="checkout-container">
-    <h1>Checkout</h1>
-    <p>Your order is being processed. Please wait...</p>
-  </div>
-  <script>document.body.classList.add('page-ready');</script>
+  <tcg-header></tcg-header>
+
+  <main class="coming-soon">
+    <span class="eyebrow">Checkout</span>
+    <h1>Your order is being processed</h1>
+    <p>Please wait — the checkout flow itself isn't wired up yet, this is a placeholder.</p>
+    <a href="/index.html" class="btn-primary">Return to TCGplayer</a>
+  </main>
+
+  <tcg-footer></tcg-footer>
 </body>
 </html>

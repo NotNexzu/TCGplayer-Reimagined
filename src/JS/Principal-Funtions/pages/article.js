@@ -1,7 +1,3 @@
-/* ============================================
-   ARTICLE PAGE INTERACTIONS v3
-   ============================================ */
-
 (function() {
   'use strict';
 
@@ -318,8 +314,6 @@
     initScrollAnimations();
     initShareButtons();
     initTableSorting();
-
-    console.log('🎴 Article page initialized v3');
   }
 
   init();

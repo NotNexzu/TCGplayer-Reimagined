@@ -44,3 +44,9 @@ button {
 }
 
 ul { list-style: none; }
+
+tcg-header,
+tcg-footer {
+  display: block;
+  width: 100%;
+}

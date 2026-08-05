@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
   <link rel="stylesheet" href="./src/style.css">
   <script type="module" src="./src/main.js"></script>
-  <script type="module" src="./src/JS/Principal-Funtions/cart.js"></script>
+  <script type="module" src="./src/cart.js"></script>
   <script type="module" src="./src/dev-mode.js"></script>
 </head>
 <body class="loading-active">
@@ -56,12 +56,31 @@
     <div class="cart-items" id="cartItems">
 
       <div class="cart-empty" id="cartEmpty">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="100" height="100">
-          <path d="M7.5 18a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm9 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" stroke="#000000" stroke-width="1.5"/><path d="m11.5 12.5 3-3m0 3-3-3M2 3l.261.092c1.302.457 1.953.686 2.325 1.231s.372 1.268.372 2.715V9.76c0 2.942.063 3.912.93 4.826.866.914 2.26.914 5.05.914H12m4.24 0c1.561 0 2.342 0 2.894-.45.551-.45.709-1.214 1.024-2.743l.5-2.424c.347-1.74.52-2.609.076-3.186-.443-.577-1.96-.577-3.645-.577h-6.065m-6.066 0H7" stroke="#000000" stroke-width="1.5" stroke-linecap="round"/>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+          <path d="M3 6h18"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
         </svg>
         <h3>Your cart is empty</h3>
         <p>Looks like you haven't added any cards yet. Start browsing to fill it up!</p>
       </div>
+    </div>
+
+    <div class="cart-optimizer">
+      <div class="optimizer-info">
+        <div class="optimizer-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/>
+            <path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/>
+            <path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/>
+          </svg>
+        </div>
+        <div class="optimizer-text">
+          <h4>Cart Optimizer</h4>
+          <p>Save up to $12.40 on shipping</p>
+        </div>
+      </div>
+      <button class="optimizer-toggle is-on" id="optimizerToggle" aria-label="Toggle cart optimizer"></button>
     </div>
 
     <div class="cart-footer">
@@ -104,10 +123,10 @@
         <input type="text" name="q" placeholder="Search for cards, sets, sellers..." aria-label="Search">
       </form>
       <nav class="main-nav">
-        <a href="./Html/stable/Browse.html">Browse</a>
+        <a href="./Html/Browse.html">Browse</a>
         <a href="sell.html">Sell</a>
         <a href="#" id="cartToggle" aria-label="Cart">
-           <svg width="23" height="23" viewBox="-0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.6 21.57a2 2 0 1 0 0-4 2 2 0 0 0 0 4m-10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4M2 3.56s4.64-.06 4 4l-.69 4.06a3.27 3.27 0 0 0 3.33 3.94h8a4.9 4.9 0 0 0 4.66-3.94l.69-4.11a3.292 3.292 0 0 0-3.35-4h-8.7" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4ZM3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         </a>
         <!-- Botón Dev Mode ACTIVO -->
         <a href="./index.html" id="developerToggleoff" class="is-active" aria-label="Developer Mode ON — Click to exit">
@@ -124,7 +143,7 @@
   
   <div class="mobile-overlay" id="mobileOverlay"></div>
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-  <a href="./Html/stable/Browse.html">Browse</a>
+  <a href="./Html/Browse.html">Browse</a>
   <a href="sell.html">Sell</a>
   <div class="mobile-divider"></div>
   <a href="login.html">Login</a>
@@ -218,36 +237,24 @@
             <h2>Latest Releases</h2>
             <p>Stay ahead of the meta with the newest sets and expansion boxes.</p>
           </div>
-          <a href="release-calendar.html" class="view-all">View release calendar →</a>
+          <a href="/shop/release-calendar.html" class="view-all">View release calendar →</a>
         </header>
         <div class="releases-grid">
           <article class="release-card">
-            <span class="tag tag-mtg">MTG</span>
-            <time datetime="2024-02-09">Released Feb 9, 2024</time>
-            <img src="https://placehold.co/400x500/2c322a/6ede72?text=Murders+at+Karlov+Manor" alt="Murders at Karlov Manor box art" class="card-image" loading="lazy">
-            <h3>Murders at Karlov Manor</h3>
-            <a href="shop-murders.html" class="btn btn-primary">Shop Now</a>
+            <img src="./assets/UI/Games/Magic-the-gatering/images/murders-at-karlov-manor-play-booster-box.png" alt="Murders at Karlov Manor box art" class="card-image" loading="lazy">
+            <a href="/shop/shop-murders.html" class="btn btn-primary">Shop Now</a>
           </article>
           <article class="release-card">
-            <span class="tag tag-pokemon">Pitch Black 3-Pack Blister [Binacle] - ME05: Pitch Black (ME05)</span>
-            <time datetime="2026-07-13">Releases: Jul 13 2026</time>
             <img src="./assets/UI/Games/Pokemon/carts/Pitch-Black-3-Pack-Blister-Binacle-ME05-Pitch-Black-ME05.jpg" alt="Temporal Forces box art" class="card-image" loading="lazy">
-            <h3>Temporal Forces</h3>
-            <a href="preorder-temporal.html" class="btn btn-preorder">Pre-order</a>
+            <a href="/shop/preorder-temporal.html" class="btn btn-preorder">Pre-order</a>
           </article>
           <article class="release-card">
-            <span class="tag tag-yugioh">Yu-Gi-Oh!</span>
-            <time datetime="2024-04-26">Releases Apr 26, 2024</time>
-            <img src="https://placehold.co/400x500/2c322a/adc6ff?text=Legacy+of+Destruction" alt="Legacy of Destruction box art" class="card-image" loading="lazy">
-            <h3>Legacy of Destruction</h3>
+            <img src="./assets/UI/Games/Yu-Gi-Oh!/Images/Legacy-of-destruction.jpg" alt="Legacy of Destruction box art" class="card-image" loading="lazy">
             <span class="btn btn-disabled">Coming Soon</span>
           </article>
           <article class="release-card">
-            <span class="tag tag-lorcana">Lorcana</span>
-            <time datetime="2024-02-23">Released Feb 23, 2024</time>
-            <img src="https://placehold.co/400x500/2c322a/ff8a80?text=Into+the+Inklands" alt="Into the Inklands box art" class="card-image" loading="lazy">
-            <h3>Into the Inklands</h3>
-            <a href="shop-inklands.html" class="btn btn-primary">Shop Now</a>
+            <img src="./assets/UI/Games/Lorcana/Into-The-Inklands.jpg" alt="Into the Inklands box art" class="card-image" loading="lazy">
+            <a href="/shop/shop-inklands.html" class="btn btn-primary">Shop Now</a>
           </article>
         </div>
       </div>
@@ -265,8 +272,8 @@
         <div class="articles-grid">
           <article class="article-card">
             <span class="category-tag strategy">Strategy</span>
-            <a href="./Html/Developement/How-to-Master-the-Current-MTG-Meta-dev.html">
-              <img src="https://placehold.co/600x375/e9f0e3/171d16?text=MTG+Meta+Guide" alt="MTG meta article" class="article-image" loading="lazy">
+            <a href="./Html//Developement/How-to-Master-the-Current-MTG-Meta-dev.html">
+              <img src="./assets/UI/Games/Magic-the-gatering/images/mtg-hero.jpg" alt="MTG meta article" class="article-image" loading="lazy">
             </a>
             <h3>How to Master the Current MTG Meta</h3>
             <p>Discover the top deck archetypes dominating the Murders at Karlov Manor release season and how to...</p>
@@ -277,7 +284,7 @@
           </article>
           <article class="article-card">
             <span class="category-tag market">Market Watch</span>
-            <a href="./Html/Developement/Pokemon-Vintage-The-State-of-the-Market-2024-dev.html">
+            <a href="./Html//Developement/Pokémon-Vintage-The-State-of-the-Market-2024-dev.html">
               <img src="https://placehold.co/600x375/e9f0e3/171d16?text=Pokémon+Vintage" alt="Pokémon vintage article" class="article-image" loading="lazy">
             </a>
             <h3>Pokémon Vintage: The State of the Market 2024</h3>
@@ -289,7 +296,7 @@
           </article>
           <article class="article-card">
             <span class="category-tag community">Community</span>
-            <a href="./Html/Developement/Organizing-Your-First-Local-Tournament-dev.html">
+            <a href="./Html/Organizing-Your-First-Local-Tournament-dev.html">
               <img src="https://placehold.co/600x375/e9f0e3/171d16?text=Tournament+Guide" alt="Local tournament guide" class="article-image" loading="lazy">
             </a>
             <h3>Organizing Your First Local Tournament</h3>
@@ -374,9 +381,9 @@
   <footer>
     <div class="container">
       <div class="footer-brand">
-        <a href="./index.html" class="logo">
-          <div class="logo-icon"><img src="./assets/brand/logo-without-text.svg" alt="TCGPlayer"></div>
-          <span class="logo-text">DEV</span>
+        <a href="/index.html" class="logo">
+          <div class="logo-icon"><img src="/assets/brand/logo-without-text.svg" alt="TCGPlayer"></div>
+          <span class="logo-text">Marketplace</span>
         </a>
         <p>The definitive trading card game platform for modern collectors, high-fidelity data, secure transactions.</p>
         <div class="social-links">
@@ -389,19 +396,19 @@
       <nav class="footer-nav" aria-label="Marketplace">
         <h3>Marketplace</h3>
         <ul>
-          <li><a href="./Html/stable/Browse.html">Browse All</a></li>
-          <li><a href="new-arrivals.html">New Arrivals</a></li>
-          <li><a href="price-guides.html">Price Guides</a></li>
-          <li><a href="authentication.html">Authentication</a></li>
+          <li><a href="/Html/stable/Browse.html">Browse All</a></li>
+          <li><a href="/shop/new-arrivals.html">New Arrivals</a></li>
+          <li><a href="/shop/price-guides.html">Price Guides</a></li>
+          <li><a href="/company/authentication.html">Authentication</a></li>
         </ul>
       </nav>
       <nav class="footer-nav" aria-label="Company">
         <h3>Company</h3>
         <ul>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="terms-of-service.html">Terms of Service</a></li>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="help-center.html">Help Center</a></li>
+          <li><a href="/company/about-us.html">About Us</a></li>
+          <li><a href="/company/terms-of-service.html">Terms of Service</a></li>
+          <li><a href="/company/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/company/help-center.html">Help Center</a></li>
         </ul>
       </nav>
       <div class="footer-newsletter">
@@ -431,6 +438,7 @@
       </div>
     </div>
   </footer>
+  
 <script>
 (function() {
   const toggle = document.querySelector('.menu-toggle');
