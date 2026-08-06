@@ -1,23 +1,5 @@
 <p align="center">
-  <img alt="TCGPlayer Reimagined Logo" src="https://raw.githubusercontent.com/NotNexzu/TCGplayer-Reimagined/main/logo-without-text.svg" width="500" />
-</p>
-
-<p align="center">
-  <img alt="header" src="https://shieldcn.dev/header/dots.svg?title=TCGPlayer+Reimagined&amp;subtitle=Your+Trusted+Marketplace+For+Collectible+Trading+Cards+Games&amp;logo=false&amp;size=wide&amp;mode=dark&amp;border=false" />
-</p>
-
-<p align="center">
-  <a href="https://www.npmjs.com/package/vite"><img alt="badge" src="https://shieldcn.dev/npm/vite.svg?font=jetbrains-mono" /></a>
-  <a href="https://github.com/NotNexzu/TCGplayer-Reimagined"><img alt="badge" src="https://shieldcn.dev/github/NotNexzu/TCGplayer-Reimagined/stars.svg" /></a>
-  <a href="https://github.com/NotNexzu/TCGplayer-Reimagined"><img alt="license" src="https://shieldcn.dev/github/NotNexzu/TCGplayer-Reimagined/license.svg?variant=secondary" /></a>
-  <a href="https://github.com/NotNexzu/TCGplayer-Reimagined"><img alt="repo views" src="https://shieldcn.dev/views/repo/NotNexzu/TCGplayer-Reimagined.svg?variant=secondary" /></a>
-</p>
-
-<p align="center">
-  <img alt="Custom badge" src="https://shieldcn.dev/badge/HTML%205.svg?variant=branded&amp;font=jetbrains-mono&amp;logo=html5" />
-  <img alt="Custom badge" src="https://shieldcn.dev/badge/CSS%203.svg?variant=branded&amp;font=jetbrains-mono&amp;logo=css" />
-  <img alt="Custom badge" src="https://shieldcn.dev/badge/JavaScript.svg?variant=branded&amp;font=jetbrains-mono&amp;logo=javascript" />
-  <img alt="Custom badge" src="https://shieldcn.dev/badge/Vite.svg?variant=branded&amp;font=jetbrains-mono&amp;logo=vite" />
+  <img alt="Header" src="https://shieldcn.dev/header/dots.svg?title=TCGPlayer+Reimagined&amp;subtitle=Your+Trusted+Marketplace+For+Collectible+Trading+Cards+Games&amp;size=social&amp;mode=dark&amp;font=jetbrains-mono&amp;image=https%3A%2F%2Fi.imgur.com%2FmBBOQXE.png" />
 </p>
 
 <p align="center">
