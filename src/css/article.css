@@ -52,7 +52,7 @@
 /* ---------- HERO ---------- */
 .hero-article {
   position: relative;
-  padding: 230px 0 60px;
+  padding: 248px 0 250px;
   text-align: left;
   overflow: hidden;
   background: var(--inverse-surface);
