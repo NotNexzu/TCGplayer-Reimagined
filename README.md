@@ -105,9 +105,12 @@ npm run dev
 
 ---
 
-## ⚠️ | DISCLAMER
-- These Project files are for educational purposes only and all rights are reserved to respectives marks.
+## ⚖️ | Legal Notice
 
+TCGplayer®, Pokémon®, Magic: The Gathering®, and all related logos and trademarks 
+are property of their respective owners. This is an independent, open-source project 
+with no affiliation to TCGplayer or Wizards of the Coast. All third-party assets are 
+used under fair use for comparative and educational purposes.
 <p align="left">
   <img alt="footer" src="https://shieldcn.dev/header/surface.svg?title=thank+you%F0%9F%92%A4&amp;subtitle=Have+a+good+day+and+remember+drink+water.&amp;size=social&amp;mode=dark&amp;align=left&amp;font=jetbrains-mono&amp;image=https%3A%2F%2Fimages.hitpaw.com%2Ftopics%2Fgif-tips%2Flofi-study-cat-gif.gif" />
 </p>
