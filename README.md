@@ -18,17 +18,6 @@
 
 ---
 
-# 📑 | Table of Contents
-
-- [Overview](#-overview)
-- [OpenSource and Contributing](#--opensource-and-contributing)
-- [Project Structure](#-project-structure)
-- [Getting Started](#--getting-started)
-- [Installation](#--installation)
-- [Questions or Issues?](#--questions-or-issues)
-
----
-
 # 🎯 | Overview
 
 TCGplayer-Reimagined is a complete redesign and reimplementation of the TCGplayer marketplace platform. This project aims to modernize the user experience and technical infrastructure, providing collectors and traders with an intuitive interface to buy, sell, and discover trading card games.
