@@ -12,20 +12,9 @@
 <p align="center">
   <img alt="Custom badge" src="https://shieldcn.dev/badge/HTML%205.svg?variant=branded&amp;font=jetbrains-mono&amp;logo=html5" />
   <img alt="Custom badge" src="https://shieldcn.dev/badge/CSS%203.svg?variant=branded&amp;font=jetbrains-mono&amp;logo=css" />
-  <img alt="Custom badge" src="https://shieldcn.dev/badge/JavaScript.svg?variant=branded&amp;font=jetbrains-mono&amp;logo=javascript" />
+  <img alt="Custom badge" src="https://shieldcn.dev/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black" ;font=jetbrains-mono&amp;logo=javascript" />
   <img alt="Custom badge" src="https://shieldcn.dev/badge/Vite.svg?variant=branded&amp;font=jetbrains-mono&amp;logo=vite" />
 </p>
-
----
-
-# 📑 | Table of Contents
-
-- [Overview](#-overview)
-- [OpenSource and Contributing](#--opensource-and-contributing)
-- [Project Structure](#-project-structure)
-- [Getting Started](#--getting-started)
-- [Installation](#--installation)
-- [Questions or Issues?](#--questions-or-issues)
 
 ---
 
@@ -67,7 +56,7 @@ This project is completely open source! We welcome contributions from developers
 
 Before you begin, ensure you have the following installed:
 
-- **Node.js *(v16.0.0 or higher)***
+- **Node.js *(v20.0.0 or higher)***
 
 - **npm *(v7.0.0 or higher)***
 
@@ -105,9 +94,12 @@ npm run dev
 
 ---
 
-## ⚠️ | DISCLAMER
-- These Project files are for educational purposes only and all rights are reserved to respectives marks.
+## ⚖️ | Legal Notice
 
+TCGplayer®, Pokémon®, Magic: The Gathering®, and all related logos and trademarks 
+are property of their respective owners. This is an independent, open-source project 
+with no affiliation to TCGplayer or Wizards of the Coast. All third-party assets are 
+used under fair use for comparative and educational purposes.
 <p align="left">
   <img alt="footer" src="https://shieldcn.dev/header/surface.svg?title=thank+you%F0%9F%92%A4&amp;subtitle=Have+a+good+day+and+remember+drink+water.&amp;size=social&amp;mode=dark&amp;align=left&amp;font=jetbrains-mono&amp;image=https%3A%2F%2Fimages.hitpaw.com%2Ftopics%2Fgif-tips%2Flofi-study-cat-gif.gif" />
 </p>
