@@ -12,7 +12,7 @@
 <p align="center">
   <img alt="Custom badge" src="https://shieldcn.dev/badge/HTML%205.svg?variant=branded&amp;font=jetbrains-mono&amp;logo=html5" />
   <img alt="Custom badge" src="https://shieldcn.dev/badge/CSS%203.svg?variant=branded&amp;font=jetbrains-mono&amp;logo=css" />
-  <img alt="Custom badge" src="https://shieldcn.dev/badge/JavaScript.svg?variant=branded&amp;font=jetbrains-mono&amp;logo=javascript" />
+  <img alt="Custom badge" src="https://shieldcn.dev/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black" ;font=jetbrains-mono&amp;logo=javascript" />
   <img alt="Custom badge" src="https://shieldcn.dev/badge/Vite.svg?variant=branded&amp;font=jetbrains-mono&amp;logo=vite" />
 </p>
 
@@ -67,7 +67,7 @@ This project is completely open source! We welcome contributions from developers
 
 Before you begin, ensure you have the following installed:
 
-- **Node.js *(v16.0.0 or higher)***
+- **Node.js *(v20.0.0 or higher)***
 
 - **npm *(v7.0.0 or higher)***
 
